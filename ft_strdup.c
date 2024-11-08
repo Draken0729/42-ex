@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quentin <quentin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 16:28:51 by qbaret            #+#    #+#             */
-/*   Updated: 2024/11/06 10:37:59 by quentin          ###   ########.fr       */
+/*   Created: 2024/11/06 14:42:11 by quentin           #+#    #+#             */
+/*   Updated: 2024/11/06 15:54:26 by quentin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,47 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*int	main(void)
+
+size_t	ft_strlen(const char *s)
 {
-	char src[10] = "OpenAI";
-	char dest[10];
+	int	i;
 
-	memcpy(dest, src, sizeof(src));
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
+}
 
-	printf("Source : %s\n", src);
-	printf("Destination : %s\n", dest);
+char *ft_strdup(const char *s) 
+{
+    size_t len = ft_strlen(s);
+    char *copy = (char *)malloc(len + 1); 
 
-	return (0);
+    if (copy == NULL)
+	{
+		return NULL;
+    }
+
+    ft_memcpy(copy, s, len + 1);
+    return copy;
+}
+
+/*int main() 
+{
+    const char *source = "Hello, world!";
+    char *copy = ft_strdup(source);
+
+    if (copy == NULL) {
+        printf("Échec de l'allocation mémoire.\n");
+        return 1;
+    }
+
+    printf("Source: %s\n", source);
+    printf("Copie: %s\n", copy);
+
+    free(copy);
+
+    return 0;
 }*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbaret <qbaret@student.42.fr>              +#+  +:+       +#+        */
+/*   By: quentin <quentin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:21:26 by qbaret            #+#    #+#             */
-/*   Updated: 2024/11/05 15:24:55 by qbaret           ###   ########.fr       */
+/*   Updated: 2024/11/08 13:45:09 by quentin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
 		dest[i] = '\0';
 	return (i + src_len - j);
 }
-
-int	main()
+/*int	main()
 {
 	char	dest[30] = "bonjour";
 	char	src[] = "hello";
@@ -48,4 +47,4 @@ int	main()
 	printf("Longueur totale prévue : %u\n", ft_strlcat(dest, src, size));
 	printf("Chaîne finale : %s\n", dest);
 	return (0);
-}
+}*/

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quentin <quentin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 18:20:21 by qbaret            #+#    #+#             */
-/*   Updated: 2024/11/06 11:09:33 by quentin          ###   ########.fr       */
+/*   Created: 2024/11/08 11:18:38 by quentin           #+#    #+#             */
+/*   Updated: 2024/11/08 13:44:41 by quentin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+void ft_putendl_fd(char *s, int fd)
 {
-	size_t	a;
+	int i;
 
-	a = 0;
-	while (a < n)
+	if (!s)
+		return;
+	
+	i = 0;
+	while(s[i])
 	{
-		if (((unsigned char*)s1)[a] != ((unsigned char*)s2)[a])
-			return ((unsigned char*)s1)[a] - ((unsigned char*)s2)[a];
-		a++;
+		write(fd, &s[i], 1);
+		i++;
 	}
-	return (0);
+	write(fd, "\n", 1);
 }
-/*int	main()
+/*int main ()
 {
-	const void	*s1 = "hello";
-	const void	*s2 = "hellob";
-	size_t 	n = 6;
-
-	printf("%d\n", ft_memcmp(s1, s2, n));
-	return (0);
+	ft_putendl_fd("bonjour", 1);
+	ft_putendl_fd("toi", 2);
+    return 0;
 }*/
