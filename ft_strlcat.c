@@ -6,7 +6,7 @@
 /*   By: quentin <quentin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:21:26 by qbaret            #+#    #+#             */
-/*   Updated: 2024/11/08 13:45:09 by quentin          ###   ########.fr       */
+/*   Updated: 2024/11/12 11:25:19 by quentin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
 {
-	unsigned int	i;
+	unsigned int	dest_end;
 	unsigned int	j;
-	unsigned int	src_len;
+	unsigned int	src_end;
 
-	i = 0;
+	dest_end = 0;
 	j = 0;
-	src_len = 0;
-	while (dest[i] != '\0' && i < size)
-		i++;
-	while (src[src_len] != '\0')
-		src_len++;
-	if (i == size)
-		return (size + src_len);
+	src_end = 0;
+	while (dest[dest_end] != '\0' && dest_end < size)
+		dest_end++;
+	while (src[src_end] != '\0')
+		src_end++;
+	if (dest_end == size)
+		return (size + src_end);
 	j = 0;
-	while (src[j] != '\0' && i < size - 1)
+	while (src[j] != '\0' && dest_end < size - 1)
 	{
-		dest[i] = src[j];
-		i++;
+		dest[dest_end] = src[j];
+		dest_end++;
 		j++;
 	}
-	if (i < size)
-		dest[i] = '\0';
-	return (i + src_len - j);
+	if (dest_end < size)
+		dest[dest_end] = '\0';
+	return (dest_end + src_end - j);
 }
 /*int	main()
 {
@@ -44,7 +44,7 @@ unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
 	char	src[] = "hello";
 	unsigned int	size = 13;
 	
-	printf("Longueur totale prévue : %u\n", ft_strlcat(dest, src, size));
-	printf("Chaîne finale : %s\n", dest);
+	printf("%u\n", ft_strlcat(dest, src, size));
+	printf("%s\n", dest);
 	return (0);
 }*/

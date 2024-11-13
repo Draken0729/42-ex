@@ -6,7 +6,7 @@
 /*   By: quentin <quentin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 09:41:07 by quentin           #+#    #+#             */
-/*   Updated: 2024/11/08 10:21:09 by quentin          ###   ########.fr       */
+/*   Updated: 2024/11/12 10:28:46 by quentin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	str[length] = '\0';
-	num = (n < 0) ? -n : n;
+	if (n < 0) 
+    	num = -n;
+	else
+    	num = n;
 	if (n < 0)
 		str[0] = '-';
 	else if (n == 0)
@@ -46,7 +49,7 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-int main()
+/*int main()
 {
     int number = -156987452;
     char *str = ft_itoa(number);
@@ -56,4 +59,4 @@ int main()
         free(str);
     }
     return 0;
-}
+}*/
